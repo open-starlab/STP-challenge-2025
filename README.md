@@ -15,7 +15,7 @@ We provide a dataset generated using the RoboCup Soccer Simulator. This dataset 
 ---
 
 ## Official Website  
-[STP Challenge 2025 Official Site](#)
+[STP Challenge 2025 Official Site (in Japanese)](#)
 
 ---
 
@@ -23,22 +23,24 @@ We provide a dataset generated using the RoboCup Soccer Simulator. This dataset 
 
 ### 1. Data Download  
 
-To download the dataset, run the following command:  
+To download the dataset, run the following command (if `debug = True`, only 5 games for each url will be downloaded):  
 ```bash
-python download.py --subpaths rc2021-roundrobin/normal/alice2021-helios2021
+python download.py --subpaths rc2021-roundrobin/normal/alice2021-helios2021 rc2021-roundrobin/normal/alice2021-hfutengine2021
 ```
 
 ### 2. Training, Testing, and Evaluation
-Run main.py for training, testing, and evaluation:
+Run `main.py` for training, testing, and evaluation (you cannot run with fewer games in the current train/val/test splitting):
 
 ```bash
 python main.py --n_epoch 10 --model RNN
 ```
 
+You can use `--Sanity` and `--TEST` options for sanity check using velocity model and only test without training, respectively.
+
 ### 3. Challenge Data Inference
 The pseudo-challenge data and corresponding ground truth are provided in `./test_samples/input` and `./test_samples/gt`, respectively.
 
-Run the following command for inference and evaluation using the challenge dataset:
+Run the following command for inference and evaluation using the (pseudo) challenge dataset:
 
 ```bash
 python main.py --n_epoch 10 --model RNN --challenge_data ./test_samples/input
