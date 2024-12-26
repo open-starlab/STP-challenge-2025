@@ -3,7 +3,6 @@
 __pycache__/
 log/*
 data/*
-test_samples/*
 results/*
 weights/*
 tracking_csv_files3/*

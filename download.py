@@ -12,7 +12,6 @@ parser.add_argument('--base_url', type=str, default='http://alab.ise.ous.ac.jp/r
 parser.add_argument('--subpaths', type=str, nargs='+', required=True, help='List of subpaths to download data from')
 parser.add_argument('--save_dir', type=str, default='robocup2d_data', help='Directory to save downloaded files')
 parser.add_argument('--option', type=str, default=None)
-parser.add_argument('--Challenge', action='store_true')
 args, _ = parser.parse_known_args()
 
 # url = "http://alab.ise.ous.ac.jp/robocupdata/rc2021-roundrobin/normal/alice2021-helios2021/"
@@ -30,22 +29,6 @@ def download_data(file_name):
             for chunk in file_response.iter_content(chunk_size=8192):
                 file.write(chunk)
     print(f"Downloaded {file_name}")
-
-# Function to add 'sim' column to each CSV file
-def add_sim_column(file_path):
-    file_name = os.path.basename(file_path)
-    sim_value = file_name.split('-')[-1].split('.')[0]  # Extracting sim value
-    df = pd.read_csv(file_path)
-    df['sim'] = sim_value  # Add new column
-    df.to_csv(file_path, index=False)  # Save back
-    print(f"Updated {file_name} with 'sim' column")
-
-def extract_tracking_data(file_path):
-    file_name = os.path.basename(file_path)
-    df = pd.read_csv(file_path)
-    df = df[['time', 'sim', 'unum', 'x', 'y', 'vx', 'vy', 'body', 'neck', 'ball']]
-    df.to_csv(file_path, index=False)  # Save back
-    print(f"Extracted tracking data from {file_name}")
 
 # Downloading files
 for url in urls:
