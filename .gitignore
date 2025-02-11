@@ -13,6 +13,7 @@ slurm-*
 run.sh
 *.pkl
 *.gif
+test-data
 
 components/.DS_Store
 components/__pycache__/
