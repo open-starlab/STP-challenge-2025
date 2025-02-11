@@ -38,7 +38,7 @@ python main.py --n_epoch 10 --model RNN
 
 You can use `--Sanity` and `--TEST` options for sanity check using velocity model and only test without training, respectively.
 
-### 3. Challenge Data Inference
+### 3. Challenge Data Inference (Initial version: Dec 9, 2024)
 The pseudo-challenge data and corresponding ground truth are provided in `./test_samples/input` and `./test_samples/gt`, respectively.
 
 Run the following command for inference and evaluation using the (pseudo) challenge dataset:
@@ -47,9 +47,21 @@ Run the following command for inference and evaluation using the (pseudo) challe
 python main.py --n_epoch 10 --model RNN --challenge_data ./test_samples/input
 ```
 
-### 4. Submission Evaluation
+### 4. Submission Evaluation (Initial version: Dec 9, 2024)
 To evaluate your submission, run:
 
 ```bash
 python evaluation.py --submit ./results/test/submission --gt ./test_samples/gt --input ./test_samples/input
 ```
+
+### 5. Submission Evaluation (Second (official) version: Feb 1, 2025)
+Another pseudo-challenge data is set to `./example`, and run:
+
+```bash
+python example/evaluation.py --gt ./example/ground-truth --input ./example/test-data --submit ./example/submission
+```
+
+### 6. The True Challenge Set
+See: 
+[STP Challenge 2025 Official Compeititon Rule (in Japanese)](https://sites.google.com/view/stp-challenge/%E7%AB%B6%E6%8A%80%E3%83%AB%E3%83%BC%E3%83%AB)
+
