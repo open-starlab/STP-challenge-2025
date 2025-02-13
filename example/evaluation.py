@@ -6,7 +6,7 @@ import pandas as pd
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--n_roles', type=int, default=23)
-parser.add_argument('--burn_in', type=int, default=30)
+parser.add_argument('--burn_in', type=int, default=0)
 parser.add_argument('--submit', type=str, required=True)
 parser.add_argument('--gt', type=str, required=True)
 parser.add_argument('--input', type=str, required=True)
@@ -37,24 +37,25 @@ def compute_errors(submit_df, gt_df, agents_list, burn_in):
     
     # Iterate over each agent
     for agent in agents_list:
-        x_pred = submit_df[f'{agent}_x'].values
-        y_pred = submit_df[f'{agent}_y'].values
-        x_gt = gt_df[f'{agent}_x'].values
-        y_gt = gt_df[f'{agent}_y'].values
-        
-        # Exclude burn-in steps
-        x_pred_burn = x_pred[burn_in:]
-        y_pred_burn = y_pred[burn_in:]
-        x_gt_burn = x_gt[burn_in:]
-        y_gt_burn = y_gt[burn_in:]
-        
-        # Compute Euclidean distances for average error
-        distances = np.sqrt((x_pred_burn - x_gt_burn) ** 2 + (y_pred_burn - y_gt_burn) ** 2)
-        errors.append(distances)
-        
-        # Compute endpoint error (last time step)
-        end_distance = np.sqrt((x_pred[-1] - x_gt[-1]) ** 2 + (y_pred[-1] - y_gt[-1]) ** 2)
-        endpoint_errors.append(end_distance)
+        if not 'r' in agent: # only left agent and ball are evaluated
+            x_pred = submit_df[f'{agent}_x'].values
+            y_pred = submit_df[f'{agent}_y'].values
+            x_gt = gt_df[f'{agent}_x'].values
+            y_gt = gt_df[f'{agent}_y'].values
+            
+            # Exclude burn-in steps
+            x_pred_burn = x_pred[burn_in:]
+            y_pred_burn = y_pred[burn_in:]
+            x_gt_burn = x_gt[burn_in:]
+            y_gt_burn = y_gt[burn_in:]
+            
+            # Compute Euclidean distances for average error
+            distances = np.sqrt((x_pred_burn - x_gt_burn) ** 2 + (y_pred_burn - y_gt_burn) ** 2)
+            errors.append(distances)
+            
+            # Compute endpoint error (last time step)
+            end_distance = np.sqrt((x_pred[-1] - x_gt[-1]) ** 2 + (y_pred[-1] - y_gt[-1]) ** 2)
+            endpoint_errors.append(end_distance)
     
     # Concatenate all errors and compute mean
     all_errors = np.concatenate(errors)
