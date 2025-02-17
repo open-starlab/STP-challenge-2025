@@ -61,7 +61,13 @@ Another pseudo-challenge data is set to `./example`, and run:
 python example/evaluation.py --gt ./example/ground-truth --input ./example/test-data --submit ./example/submission
 ```
 
-### 6. The True Challenge Set
+### 6. The True Challenge Set (Feb 1, 2025)
 See: 
 [STP Challenge 2025 Official Compeititon Rule (in Japanese)](https://sites.google.com/view/stp-challenge/%E7%AB%B6%E6%8A%80%E3%83%AB%E3%83%BC%E3%83%AB)
 
+### 7. Validation of Submission File (Feb 18, 2025)
+To validate your submission file, run:
+
+```bash
+python example/validate_submission.py --input ./example/test-data --submit ./example/submission
+```
