@@ -10,7 +10,7 @@ We provide a dataset generated using the RoboCup Soccer Simulator. This dataset 
 
 **Prediction Target:** The evaluation will be conducted on newly played matches generated using teams included in this dataset.
 
-**Data Source:** The complete dataset is available at: [https://github.com/hidehisa.akiyama/RoboCup2D-data/](https://github.com/hidehisa.akiyama/RoboCup2D-data/)
+**Data Source:** The complete dataset is available at: [https://github.com/hidehisaakiyama/RoboCup2D-data/](https://github.com/hidehisaakiyama/RoboCup2D-data/)
 
 ---
 
