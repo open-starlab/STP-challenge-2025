@@ -1,4 +1,4 @@
-# STP Challenge 2025: Soccer Trajectory Prediction Competition
+# STP Challenge 2025: Soccer Trajectory Prediction Competition 
 
 ## Overview  
 The STP Challenge 2025 aims to predict the movement trajectories of players and the ball from a few seconds before a goal is scored until the goal occurs during soccer matches
