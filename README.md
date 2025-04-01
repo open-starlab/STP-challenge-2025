@@ -28,9 +28,10 @@ To download the dataset, run the following command (if `debug = True`, only 5 ga
 python download.py --baseurls \
   https://alab.ise.ous.ac.jp/robocupdata/rc2024-roundrobin/ \
   https://alab.ise.ous.ac.jp/robocupdata/rc2021-roundrobin/ \
-  --subpaths normal/alice2021-helios2021 normal/alice2021-hfutengine202
+  --subpaths normal/alice2021-helios2021 normal/alice2021-hfutengine2021
 ```
-(Modified the code on Mar 31, 2025, to reduce server load& Dataset Links)
+(Modified the code on Feb 12, 2025, to reduce server load)
+(Modified the code on Mar 31, 2025, to modify dataset links)
 
 ### 2. Training, Testing, and Evaluation
 Run `main.py` for training, testing, and evaluation (you cannot run with fewer games in the current train/val/test splitting):
