@@ -37,15 +37,24 @@ def download_data(file_name, base_url, delay):
 
 # Downloading files
 for url in urls:
-    response = requests.get(url)
+    try:
+        response = requests.get(url)
+    except Exception as e:
+        print(f"Failed to get URL {url}: {e}")
+        continue
+
     soup = BeautifulSoup(response.text, 'html.parser')
     print(f"Downloading data from {url}")
     i = 0
     with ThreadPoolExecutor(max_workers=args.max_workers) as executor:
         for link in soup.find_all('a', href=True):
-            if debug and i == 5:
-                break
             file_name = link['href']
-            if file_name.endswith("tracking.csv"):
+            print(f"Found link: {file_name}")  # Debug print for every link
+            if debug and i == 5:
+                print("Debug mode: breaking after 5 links")
+                break
+            # Adjust condition if needed, e.g., case-insensitive check:
+            if file_name.lower().endswith("tracking.csv"):
+                print(f"Submitting download task for {file_name}")
                 executor.submit(download_data, file_name, url, args.delay)
                 i += 1
