@@ -29,13 +29,12 @@ To use larger data, run below.
 
 ### 1. Data Download  
 
-(Recommended) To download data from google drive, run the code such that
+(Recommended, added on Apr 8, 2025) To download data from google drive, run the code such that
 ```bash
 python download_from_gdrive.py --subpaths aeteam2024-cyrus2024 aeteam2024-fra2024
 ```
-(added on Apr 8, 2025)
 
-(Not recommended)
+(Not recommended, original)
 To download the dataset from the original server, run the following command (if `debug = True`, only 5 games for each url will be downloaded):  
 ```bash
 python download.py --baseurls \
