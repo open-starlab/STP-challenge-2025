@@ -19,7 +19,11 @@ We provide a dataset generated using the RoboCup Soccer Simulator. This dataset 
 
 ---
 
-## How to Use  
+## How to Use 
+
+### 0. Sample code on Google Colab (Apr 8, 2025)
+
+https://colab.research.google.com/drive/1kHYEbbcERr0MhEBGNENM2aqdTJg_27QU?usp=sharing
 
 ### 1. Data Download  
 
@@ -32,6 +36,12 @@ python download.py --baseurls \
 ```
 (Modified the code on Feb 12, 2025, to reduce server load)
 (Modified the code on Mar 31, 2025, to modify dataset links)
+
+Or, to download data from google drive, run the code such that
+```bash
+python download_from_gdrive.py --subpaths aeteam2024-cyrus2024 aeteam2024-fra2024
+```
+(added on Apr 8, 2025)
 
 ### 2. Training, Testing, and Evaluation
 Run `main.py` for training, testing, and evaluation (you cannot run with fewer games in the current train/val/test splitting):

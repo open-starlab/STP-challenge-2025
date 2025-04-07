@@ -5,30 +5,13 @@ log/*
 data/*
 results/*
 weights/*
-tracking_csv_files3/*
-robocup2d_data/*
-robocup2d_data_/*
-robocup2d_data__/*
+downloaded_files/*
 slurm-*
 run.sh
 *.pkl
 *.gif
 test-data
-
-components/.DS_Store
-components/__pycache__/
-config/.DS_Store
-config/algs/.DS_Store
-controllers/.DS_Store
-controllers/__pycache__/
-envs/.DS_Store
-envs/__pycache__/
-learners/.DS_Store
-learners/__pycache__/
-modules/.DS_Store
-modules/__pycache__/
-utils/.DS_Store
-utils/__pycache__/
+create_subpath_to_file_id.py
 
 # Jupyter Notebook
 .ipynb_checkpoints
