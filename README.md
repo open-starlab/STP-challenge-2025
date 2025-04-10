@@ -1,16 +1,14 @@
 # STP Challenge 2025: Soccer Trajectory Prediction Competition 
 
-## Overview  
+## Overview (The competition has ended!) 
 The STP Challenge 2025 aims to predict the movement trajectories of players and the ball from a few seconds before a goal is scored until the goal occurs during soccer matches
-(The competition has ended!)
----
 
 ## Dataset  
 We provide a dataset generated using the RoboCup Soccer Simulator. This dataset includes over 2,000 matches played by 10 teams from RoboCup 2024's round-robin tournament, totaling more than 15,000 hours of game time.  
 
 **Prediction Target:** The evaluation will be conducted on newly played matches generated using teams included in this dataset.
 
-**Data Source:** The complete dataset is available at: [google drive](https://drive.google.com/drive/folders/1hiXe4Vyj79FQS8tS_fCvnhaYBM7ezEzy?usp=sharing) or  [original source](https://github.com/hidehisaakiyama/RoboCup2D-data/)
+**Data Source:** The complete dataset is available at: [google drive](https://drive.google.com/drive/folders/1hiXe4Vyj79FQS8tS_fCvnhaYBM7ezEzy?usp=sharing) or  [original source](https://github.com/hidehisaakiyama/RoboCup2D-data/).
 
 ---
 
@@ -43,6 +41,7 @@ python download.py --baseurls \
   --subpaths normal/alice2021-helios2021 normal/alice2021-hfutengine2021
 ```
 (Modified the code on Feb 12, 2025, to reduce server load)
+
 (Modified the code on Mar 31, 2025, to modify dataset links)
 
 ### 2. Training, Testing, and Evaluation
