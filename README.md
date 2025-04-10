@@ -2,7 +2,7 @@
 
 ## Overview  
 The STP Challenge 2025 aims to predict the movement trajectories of players and the ball from a few seconds before a goal is scored until the goal occurs during soccer matches
-
+(The competition has ended!)
 ---
 
 ## Dataset  
@@ -10,13 +10,13 @@ We provide a dataset generated using the RoboCup Soccer Simulator. This dataset 
 
 **Prediction Target:** The evaluation will be conducted on newly played matches generated using teams included in this dataset.
 
-**Data Source:** The complete dataset is available at: [https://github.com/hidehisaakiyama/RoboCup2D-data/](https://github.com/hidehisaakiyama/RoboCup2D-data/)
+**Data Source:** The complete dataset is available at: [google drive](https://drive.google.com/drive/folders/1hiXe4Vyj79FQS8tS_fCvnhaYBM7ezEzy?usp=sharing) or  [original source](https://github.com/hidehisaakiyama/RoboCup2D-data/)
 
 ---
 
 ## Official Website  
 [STP Challenge 2025 Official Site (in Japanese)](https://sites.google.com/view/stp-challenge/)
-
+(The competition has ended)
 ---
 
 ## How to Use 
@@ -29,7 +29,7 @@ To use larger data, run below.
 
 ### 1. Data Download  
 
-(Recommended, added on Apr 8, 2025) To download data from google drive, run the code such that
+(Recommended, added on Apr 8, 2025) To download data from [google drive](https://drive.google.com/drive/folders/1hiXe4Vyj79FQS8tS_fCvnhaYBM7ezEzy?usp=sharing), run the code such that
 ```bash
 python download_from_gdrive.py --subpaths aeteam2024-cyrus2024 aeteam2024-fra2024
 ```
