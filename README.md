@@ -4,18 +4,20 @@
 The STP Challenge 2025 aims to predict the movement trajectories of players and the ball from a few seconds before a goal is scored until the goal occurs during soccer matches
 
 ## Dataset  
-We provide a dataset generated using the RoboCup Soccer Simulator. This dataset includes over 2,000 matches played by 10 teams from RoboCup 2024's round-robin tournament, totaling more than 15,000 hours of game time.  
+We provide a dataset generated using the RoboCup Soccer Simulator. This dataset includes over 2,000 matches played by 10 teams from RoboCup 2024's round-robin tournament, totaling more than 15,000 hours of game time. 
 
-**Prediction Target:** The evaluation will be conducted on newly played matches generated using teams included in this dataset.
+We host two distinct competitions:
 
-**Data Source:** The complete dataset is available at: (recommended) [google drive](https://drive.google.com/drive/folders/1hiXe4Vyj79FQS8tS_fCvnhaYBM7ezEzy?usp=sharing) or [original source](https://github.com/hidehisaakiyama/RoboCup2D-data/).
+- [STP-Challenge-Japan 2025](./STP-Challenge-Japan-2025.md): Completed in March 2025.
+- [STP-World-Challenge 2025](./STP-World-Challenge-2025.md): (details TBD).
 
----
+Please select the appropriate challenge for detailed instructions and resources.
 
-## Official Website  
-[STP Challenge 2025 Official Site (in Japanese)](https://sites.google.com/view/stp-challenge/)
-(rhe competition has ended)
----
+## General Dataset Information
+Both challenges utilize the same dataset, generated from RoboCup Soccer Simulator matches. It includes over 2,000 matches with 10 teams from RoboCup 2024, totaling over 15,000 hours of game data.
+
+- [Google Drive Dataset (Recommended)](https://drive.google.com/drive/folders/1hiXe4Vyj79FQS8tS_fCvnhaYBM7ezEzy?usp=sharing)
+- [Original Source](https://github.com/hidehisaakiyama/RoboCup2D-data/)
 
 ## How to Use 
 
@@ -31,18 +33,6 @@ To use larger data, run below.
 ```bash
 python download_from_gdrive.py --subpaths aeteam2024-cyrus2024 aeteam2024-fra2024
 ```
-
-(Unavailable now)
-To download the dataset from the original server, run the following command (if `debug = True`, only 5 games for each url will be downloaded):  
-```bash
-python download.py --baseurls \
-  https://alab.ise.ous.ac.jp/robocupdata/rc2024-roundrobin/ \
-  https://alab.ise.ous.ac.jp/robocupdata/rc2021-roundrobin/ \
-  --subpaths normal/alice2021-helios2021 normal/alice2021-hfutengine2021
-```
-(Modified the code on Feb 12, 2025, to reduce server load)
-
-(Modified the code on Mar 31, 2025, to modify dataset links)
 
 ### 2. Training, Testing, and Evaluation
 Run `main.py` for training, testing, and evaluation (you cannot run with fewer games in the current train/val/test splitting):
@@ -67,22 +57,4 @@ To evaluate your submission, run:
 
 ```bash
 python evaluation.py --submit ./results/test/submission --gt ./test_samples/gt --input ./test_samples/input
-```
-
-### 5. Submission Evaluation (Second (official) version: Feb 1, 2025)
-Another pseudo-challenge data is set to `./example`, and run:
-
-```bash
-python example/evaluation.py --gt ./example/ground-truth --input ./example/test-data --submit ./example/submission
-```
-
-### 6. The True Challenge Set (Feb 1, 2025)
-See: 
-[STP Challenge 2025 Official Compeititon Rule (in Japanese)](https://sites.google.com/view/stp-challenge/%E7%AB%B6%E6%8A%80%E3%83%AB%E3%83%BC%E3%83%AB)
-
-### 7. Validation of Submission File (Feb 18, 2025)
-To validate your submission file, run:
-
-```bash
-python example/validate_submission.py --input ./example/test-data --submit ./example/submission
 ```
