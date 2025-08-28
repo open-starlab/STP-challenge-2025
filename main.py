@@ -29,7 +29,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--data', type=str, default='robocup2D')
 parser.add_argument('--data_dir', type=str, default='robocup2d_data')
 parser.add_argument('--n_roles', type=int, default=23)
-parser.add_argument('-t_step', '--totalTimeSteps', type=int, default=60)
+parser.add_argument('--burn_in', type=int, default=100)
+parser.add_argument('-t_step', '--totalTimeSteps', type=int, default=30)
 parser.add_argument('--overlap', type=int, default=0)
 parser.add_argument('--batchsize', type=int, default=64)
 parser.add_argument('--n_epoch', type=int, required=True)
@@ -226,7 +227,6 @@ if __name__ == '__main__':
     batchSize = args.batchsize # 
     overlapWindow = args.overlap # 
     totalTimeSteps =  args.totalTimeSteps # 
-    args.burn_in = 20
 
     file_paths = [os.path.join(args.data_dir, file) for file in os.listdir(args.data_dir)]
     os.makedirs("./metadata", exist_ok=True)
