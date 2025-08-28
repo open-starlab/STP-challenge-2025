@@ -1,5 +1,4 @@
 # STP Challenge 2025: Soccer Trajectory Prediction Competition 
-[![Discord](https://img.shields.io/badge/Discord-Join%20Chat-5865F2?logo=discord&logoColor=white)](https://discord.gg/PnH2MDDaCf)
 
 ## Overview 
 The STP Challenge 2025 aims to predict the movement trajectories of players and the ball from a few seconds before a goal is scored until the goal occurs during soccer matches
@@ -7,10 +6,9 @@ The STP Challenge 2025 aims to predict the movement trajectories of players and 
 ## Dataset  
 We provide a dataset generated using the RoboCup Soccer Simulator. This dataset includes over 2,000 matches played by 10 teams from RoboCup 2024's round-robin tournament, totaling more than 15,000 hours of game time. 
 
-We host two distinct competitions:
+We host a competition:
 
 - [STP-Challenge-Japan 2025](./STP-Challenge-Japan-2025.md): Completed in March 2025.
-- [STP-World-Challenge 2025](./STP-World-Challenge-2025.md): (details TBD).
 
 Please select the appropriate challenge for detailed instructions and resources.
 
