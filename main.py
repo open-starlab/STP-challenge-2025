@@ -29,8 +29,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--data', type=str, default='robocup2D')
 parser.add_argument('--data_dir', type=str, default='robocup2d_data')
 parser.add_argument('--n_roles', type=int, default=23)
-parser.add_argument('--burn_in', type=int, default=100)
-parser.add_argument('-t_step', '--totalTimeSteps', type=int, default=30)
+parser.add_argument('--burn_in', type=int, default=30)
+parser.add_argument('-t_step', '--totalTimeSteps', type=int, default=60)
 parser.add_argument('--overlap', type=int, default=0)
 parser.add_argument('--batchsize', type=int, default=64)
 parser.add_argument('--n_epoch', type=int, required=True)
@@ -167,14 +167,12 @@ def run_sanity(args,test_loader):
         avgL2_sd[key] = np.std(losses[key])
 
     print('Velocity (Sanity Check)')
-    print('(mean):'
-        +' $' + '{:.2f}'.format(avgL2_m['e_pos'])+' \pm '+'{:.2f}'.format(avgL2_sd['e_pos'])+'$ &'
-        +' $' + '{:.2f}'.format(avgL2_m['e_vel'])+' \pm '+'{:.2f}'.format(avgL2_sd['e_vel'])+'$ &'
-        ) 
-    print('(endpoint):'
-        +' $' + '{:.2f}'.format(avgL2_m['e_e_p'])+' \pm '+'{:.2f}'.format(avgL2_sd['e_e_p'])+'$ &'
-        +' $' + '{:.2f}'.format(avgL2_m['e_e_v'])+' \pm '+'{:.2f}'.format(avgL2_sd['e_e_v'])+'$ &'
-        ) 
+    print('Mean:')
+    print('  Position Error: {:.2f} ± {:.2f}'.format(avgL2_m['e_pos'], avgL2_sd['e_pos']))
+    print('  Velocity Error: {:.2f} ± {:.2f}'.format(avgL2_m['e_vel'], avgL2_sd['e_vel']))
+    print('Endpoint:')
+    print('  Position Error: {:.2f} ± {:.2f}'.format(avgL2_m['e_e_p'], avgL2_sd['e_e_p']))
+    print('  Velocity Error: {:.2f} ± {:.2f}'.format(avgL2_m['e_e_v'], avgL2_sd['e_e_v']))
     
             
     losses['e_pos'] =  np.mean(losses['e_pos'])
