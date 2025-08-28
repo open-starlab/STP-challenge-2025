@@ -33,7 +33,7 @@ parser.add_argument('--burn_in', type=int, default=30)
 parser.add_argument('-t_step', '--totalTimeSteps', type=int, default=60)
 parser.add_argument('--overlap', type=int, default=0)
 parser.add_argument('--batchsize', type=int, default=64)
-parser.add_argument('--n_epoch', type=int, required=True)
+parser.add_argument('--n_epoch', type=int, default=1)
 parser.add_argument('--model', type=str, required=True)
 parser.add_argument('-ev_th','--event_threshold', type=int, default=50, help='event with frames less than the threshold will be removed')
 parser.add_argument('--fs', type=int, default=1)
@@ -394,6 +394,7 @@ if __name__ == '__main__':
     # Challenge data
     if args.Challenge:
         urls_challenge = os.listdir(args.challenge_data)
+        urls_challenge = sorted(os.listdir(args.challenge_data))
         challenge_data,challenge_cycle = [],[]
         for url in urls_challenge:
             if url == '@eaDir':
@@ -675,14 +676,13 @@ if __name__ == '__main__':
                 avgL2_sd[key] = np.std(losses2[key])
 
             print(args.model)
-            print('(mean):'
-                +' $' + '{:.2f}'.format(avgL2_m['e_pos'])+' \pm '+'{:.2f}'.format(avgL2_sd['e_pos'])+'$ &'
-                +' $' + '{:.2f}'.format(avgL2_m['e_vel'])+' \pm '+'{:.2f}'.format(avgL2_sd['e_vel'])+'$ &'
-                ) 
-            print('(endpoint):'
-                +' $' + '{:.2f}'.format(avgL2_m['e_e_p'])+' \pm '+'{:.2f}'.format(avgL2_sd['e_e_p'])+'$ &'
-                +' $' + '{:.2f}'.format(avgL2_m['e_e_v'])+' \pm '+'{:.2f}'.format(avgL2_sd['e_e_v'])+'$ &'
-                ) 
+            print('Mean:')
+            print('  Position Error: {:.2f} ± {:.2f}'.format(avgL2_m['e_pos'], avgL2_sd['e_pos']))
+            print('  Velocity Error: {:.2f} ± {:.2f}'.format(avgL2_m['e_vel'], avgL2_sd['e_vel']))
+            print('Endpoint:')
+            print('  Position Error: {:.2f} ± {:.2f}'.format(avgL2_m['e_e_p'], avgL2_sd['e_e_p']))
+            print('  Velocity Error: {:.2f} ± {:.2f}'.format(avgL2_m['e_e_v'], avgL2_sd['e_e_v']))
+
         else: # challenge   
             # Save samples
             experiment_path = './results/test/submission'
@@ -713,4 +713,5 @@ if __name__ == '__main__':
                 df.to_csv(sample_path, index=False)
                 i += 1
             print('Samples saved to {}'.format(experiment_path))
+            
 

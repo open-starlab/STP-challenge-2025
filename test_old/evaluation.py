@@ -83,7 +83,7 @@ def main():
     
     # Find common files
     common_files = set(submit_filenames).intersection(set(gt_filenames))
-    
+    common_files = sorted(common_files)
     if not common_files:
         print("No matching CSV files found between submission and ground truth folders.")
         return
@@ -112,7 +112,8 @@ def main():
         expected_columns = []
 
         # Sanitary check
-        assert input_df.index[-1] + 1 == submit_df.index[0], "The last cycle of input_df does not match the first cycle of submit_df"
+        try: assert input_df.index[-1] + 1 == submit_df.index[0], "The last cycle of input_df does not match the first cycle of submit_df"
+        except: import pdb; pdb.set_trace()
         # Extract the cycles that are present in submit_df from gt_df
         common_cycles = submit_df.index.intersection(gt_df.index)
         gt_df2 = gt_df.loc[common_cycles]
